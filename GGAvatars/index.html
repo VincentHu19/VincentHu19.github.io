@@ -104,10 +104,10 @@
             <span class="author-block">
               <strong>Tianze Shi</strong><sup>3</sup>,
             </span>
+            <br>
             <span class="author-block">
               <strong>Xiaoqiang Liu</strong><sup>2</sup>,
             </span>
-            <br>
             <span class="author-block">
               <strong>Pengfei Wan</strong><sup>2</sup>,
             </span>
@@ -277,16 +277,13 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Proposed Method</h2>
         <div class="content has-text-justified">
-          <img src="./static/videos/synctalk.png" alt="synctalk">
+          <img src="./static/videos/pipeline.png" alt="synctalk">
           <p>
             <br>
-            \textbf{Overview of GGAvatars.} Given a source image $I_{src}$, we use an Identity Encoder 
-            to extract identity features $F_{id}$ and a Gaussian Generator to predict Gaussian feature 
-            map $F$ in the UV space. The color and spacial features of $F$ are visualized in the figure. 
-            Then we perform UV sampling on $F$ to obtain the canonical 3D Gaussian head $\mathcal{G}$. 
-            We use pose and expression of the driving image $I_{dri}$ for animation by deforming the 
-            cannonical head. The synthesized image $\hat{I}_{dri}$ is supervised by ground 
-            truth $I_{dri}$ for self-supervised learning.
+            Overview of GGAvatars. Given a source image , we use an Identity Encoder to extract 
+            identity features and a Gaussian Generator to predict Gaussian feature map in the UV space. 
+            The color and spacial features of are visualized in the figure. Then we perform UV sampling on $F$ to obtain the canonical 3D Gaussian head. 
+            We use pose and expression of the driving image for animation by deforming the cannonical head. The synthesized image is supervised by ground truth for self-supervised learning.
           </p>
           <!-- <p>
             
