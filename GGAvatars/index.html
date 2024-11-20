@@ -6,7 +6,7 @@
         content="">
   <meta name="keywords" content="Talking head, Audio-driven, NeRF, SyncTalk">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SyncTalk</title>
+  <title>GGAvatars</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
@@ -88,43 +88,41 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"> SyncTalk: The Devil&#x1F608; is in the Synchronization for Talking Head Synthesis</h1>
+          <h1 class="title is-1 publication-title"> GGAvatars: Learning Generalizable and Animatable Gaussian Head Priors from 2D Image Collections</h1>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://ziqiaopeng.github.io/">Ziqiao Peng</a><sup>1</sup>,</span>
+              <a href="https://vincenthu19.github.io/">Wentao Hu</a><sup>1</sup>,</span>
             <span class="author-block">
-              <strong>Wentao Hu</strong><sup>2</sup>,</span>
+              <strong>Shunkai Li</strong><sup>2</sup>,</span>
             <span class="author-block">
-              <strong>Yue Shi</strong><sup>3</sup>,
+              <strong>Wansheng Tian</strong><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://xiangyuzhu-open.github.io/homepage/">Xiangyu Zhu</a><sup>4</sup>,
+              <strong>Fan Shi</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <strong>Xiaomei Zhang</strong><sup>4</sup>,
+              <strong>Tianze Shi</strong><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="https://sites.google.com/view/fromandto">Hao Zhao</a><sup>5</sup>,
+              <strong>Xiaoqiang Liu</a><sup>2</sup>,
             </span>
             <br>
             <span class="author-block">
-              <a href="http://info.ruc.edu.cn/jsky/szdw/adszycx/bssds/jsjyyjs1/22e455e725db45a3a310bbc0f045c0f1.htm">Jun He</a><sup>1</sup>,
+              <strong>Pengfei Wan</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.sem.tsinghua.edu.cn/info/1189/32080.htm">Hongyan Liu</a><sup>5*</sup>,
+              <strong>Di Zhang</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://zhaoxinf.github.io/">Zhaoxin Fan</a><sup>1*</sup>
+              <strong>Hui Tian</a><sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Renmin University of China,</span>
-            <span class="author-block"><sup>2</sup>Beijing University of Posts and Telecommunications,</span>
-            <span class="author-block"><sup>3</sup>Psyche AI Inc.,</span>
-            <span class="author-block"><sup>4</sup>Chinese Academy of Sciences,</span>
-            <span class="author-block"><sup>5</sup>Tsinghua University</span>
+            <span class="author-block"><sup>1</sup>Beijing University of Posts and Telecommunications,</span>
+            <span class="author-block"><sup>2</sup>Kuaishou Technology,</span>
+            <span class="author-block"><sup>3</sup>Peking University.,</span>
 
           </div>
 
@@ -176,8 +174,8 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <strong>SyncTalk</strong> synthesizes synchronized talking head videos, employing tri-plane hash representations to maintain subject identity.
-         It can generate synchronized lip movements, facial expressions, and stable head poses, and restores hair details to create high-resolution videos.
+        <strong>GGAvatars</strong>  learns 3D head priors from only 2D in-the-wild image collections. We supervise 3D Gaussians using 
+        2D data in a self-supervised manner. During inference, our model reconstructs one-shot high-quality 3D head avatar from a single image.
       </h2>
     </div>
   </div>
@@ -250,27 +248,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Achieving high synchronization in the synthesis of realistic, speech-driven talking 
-            head videos presents a significant challenge. Traditional Generative Adversarial 
-            Networks (GAN) struggle to maintain consistent facial identity, while Neural Radiance 
-            Fields (NeRF) methods, although they can address this issue, often produce mismatched
-             lip movements, inadequate facial expressions, and unstable head poses. 
-             A lifelike talking head requires synchronized coordination of subject identity, 
-             lip movements, facial expressions, and head poses. The absence of these synchronizations
-              is a fundamental flaw, leading to unrealistic and artificial outcomes.
-            <br>
-            <br>
-            To address the critical issue of synchronization, identified as the ''devil'' 
-            in creating realistic talking heads, we introduce SyncTalk. This NeRF-based 
-            method effectively maintains subject identity, enhancing synchronization and 
-            realism in talking head synthesis. SyncTalk employs a Face-Sync Controller to 
-            align lip movements with speech and innovatively uses a 3D facial blendshape 
-            model to capture accurate facial expressions. Our Head-Sync Stabilizer optimizes 
-            head poses, achieving more natural head movements. The Portrait-Sync Generator restores 
-            hair details and blends the generated head with the torso for a seamless visual experience.
-             Extensive experiments and user studies demonstrate that SyncTalk outperforms 
-             state-of-the-art methods in synchronization and realism. We recommend watching 
-             the supplementary video.
+            Creating high-fidelity 3D avatar is crucial for many applications. Recent advances in 
+            Gaussian Splatting enables creating avatar from videos, but require video inputs for 
+            specific identities with accurate tracking to guarantee the quality of reenactment. 
+            Moreover, they often fail in unseen expressions and motions. In this paper, we propose 
+            a generalizable and animatable 3D Gaussian training approach that creates high-fidelity 
+            head avatar from a single image. We argue that this task can be learned from only 2D 
+            in-the-wild images, without the need of multi-view videos or accurate high-poly meshes. 
+            To achieve this, our model learns to synthesize a target image from a source and a driving image. 
+            We design a rasterization-based Identity-Encoder to embed identity and spatial features 
+            into the Gaussian Generator. To tackle the unstructured nature of 3D Gaussians, we predict 
+            Gaussian attributes in the UV space of a canonical mesh. Our efficient pipeline scales 
+            well to large-scale 2D datasets, enabling realistic representations of varying appearances 
+            and complex expressions. The model generates one-shot 3D avatar from a single image that 
+            reenact at 120+ fps with 1k resolution. The Gaussians generalize well to various motions, 
+            unseen expressions and even exaggerated/subtle expressions. Comprehensive experiments show that 
+            our method achieves state-of-the-art performance on reenactment and multi-view consistency.
           </p>
         </div>
       </div>
@@ -286,14 +279,13 @@
           <img src="./static/videos/synctalk.png" alt="synctalk">
           <p>
             <br>
-            Overview of SyncTalk. Given a cropped reference video of a talking head and the corresponding speech,
-             SyncTalk can extract the Lip Feature <img style="transform: translateY(0.1em); background: white;" src="../synctalk/svg/fl.svg">, 
-             Expression Feature <img style="transform: translateY(0.1em); background: white;" src="../synctalk/svg/fe.svg">, 
-             and Head Pose <img style="transform: translateY(0.1em); background: white;" src="../synctalk/svg/rt.svg"> through
-              two synchronization modules <img style="transform: translateY(0.1em); background: white;" src="../synctalk/svg/a.svg"> 
-              and <img style="transform: translateY(0.1em); background: white;" src="../synctalk/svg/b.svg">. The Tri-Plane Hash Representation then models the head,
-               outputting a rough speech-driven video. The Portrait-Sync Generator further restores details such
-                as hair and background, ultimately producing a high-resolution talking head video.
+            \textbf{Overview of GGAvatars.} Given a source image $I_{src}$, we use an Identity Encoder 
+            to extract identity features $F_{id}$ and a Gaussian Generator to predict Gaussian feature 
+            map $F$ in the UV space. The color and spacial features of $F$ are visualized in the figure. 
+            Then we perform UV sampling on $F$ to obtain the canonical 3D Gaussian head $\mathcal{G}$. 
+            We use pose and expression of the driving image $I_{dri}$ for animation by deforming the 
+            cannonical head. The synthesized image $\hat{I}_{dri}$ is supervised by ground 
+            truth $I_{dri}$ for self-supervised learning.
           </p>
           <!-- <p>
             
@@ -314,11 +306,8 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-  @article{peng2023synctalk,
-    title={SyncTalk: The Devil is in the Synchronization for Talking Head Synthesis}, 
-    author={Ziqiao Peng and Wentao Hu and Yue Shi and Xiangyu Zhu and Xiaomei Zhang and Jun He and Hongyan Liu and Zhaoxin Fan},
-    journal={arXiv preprint arXiv:2311.17590},
-    year={2023}
+  @article{hu2024ggavatars,
+    title={GGAvatars: Learning Generalizable and Animatable Gaussian Head Priors from 2D Image Collections}, 
   }
 </code></pre>
   </div>
