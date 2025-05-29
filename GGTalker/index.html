@@ -6,7 +6,7 @@
         content="">
   <meta name="keywords" content="Talking head, Audio-driven, NeRF, SyncTalk">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GGAvatars</title>
+  <title>GGTalker</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
@@ -96,13 +96,13 @@
             <span class="author-block">
               <strong>Shunkai Li</strong><sup>2</sup>,</span>
             <span class="author-block">
-              <strong>Wansheng Tian</strong><sup>1</sup>,
+              <a href="https://ziqiaopeng.github.io/">Ziqiao Peng</strong><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <strong>Haoxian Zhang</strong><sup>2</sup>,
             </span>
             <span class="author-block">
               <strong>Fan Shi</strong><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <strong>Tianze Shi</strong><sup>3</sup>,
             </span>
             <br>
             <span class="author-block">
@@ -123,7 +123,7 @@
             <span class="author-block"><sup>1</sup>Beijing University of Posts and Telecommunications,</span>
             <br>
             <span class="author-block"><sup>2</sup>Kuaishou Technology,</span>
-            <span class="author-block"><sup>3</sup>Peking University.,</span>
+            <span class="author-block"><sup>3</sup>Renmin University.</span>
 
           </div>
           
@@ -175,7 +175,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <strong>GGAvatars</strong>  learns 3D head priors from only 2D in-the-wild image collections. We supervise 3D Gaussians using 
+        <strong>GGTalker</strong>  learns 3D head priors from only 2D in-the-wild image collections. We supervise 3D Gaussians using 
         2D data in a self-supervised manner. During inference, our model reconstructs one-shot high-quality 3D head avatar from a single image.
       </h2>
     </div>
@@ -249,22 +249,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Creating high-fidelity 3D avatar is crucial for many applications. Recent advances in 
-            Gaussian Splatting enables creating avatar from videos, but require video inputs for 
-            specific identities with accurate tracking to guarantee the quality of reenactment. 
-            Moreover, they often fail in unseen expressions and motions. In this paper, we propose 
-            a generalizable and animatable 3D Gaussian training approach that creates high-fidelity 
-            head avatar from a single image. We argue that this task can be learned from only 2D 
-            in-the-wild images, without the need of multi-view videos or accurate high-poly meshes. 
-            To achieve this, our model learns to synthesize a target image from a source and a driving image. 
-            We design a rasterization-based Identity-Encoder to embed identity and spatial features 
-            into the Gaussian Generator. To tackle the unstructured nature of 3D Gaussians, we predict 
-            Gaussian attributes in the UV space of a canonical mesh. Our efficient pipeline scales 
-            well to large-scale 2D datasets, enabling realistic representations of varying appearances 
-            and complex expressions. The model generates one-shot 3D avatar from a single image that 
-            reenact at 120+ fps with 1k resolution. The Gaussians generalize well to various motions, 
-            unseen expressions and even exaggerated/subtle expressions. Comprehensive experiments show that 
-            our method achieves state-of-the-art performance on reenactment and multi-view consistency.
+            Creating high-quality, generalizable speech-driven 3D talking heads remains a persistent challenge. 
+            Previous methods achieve satisfactory results for fixed viewpoints and small-scale audio variations, 
+            but they struggle with large head rotations and out-of-distribution (OOD) audio. Moreover, 
+            they are constrained by the need for time-consuming, identity-specific training. We believe the core 
+            issue lies in the lack of sufficient 3D priors, which limits the extrapolation capabilities of 
+            synthesized talking heads. To address this, we propose GGTalker, which synthesizes talking heads through 
+            a combination of generalizable priors and identity-specific adaptation. We introduce a two-stage Prior-Adaptation 
+            training strategy to learn Gaussian head priors and adapt to individual characteristics. We train Audio-Expression 
+            and Expression-Visual priors to capture the universal patterns of lip movements and the general distribution of head textures. 
+            During the Customized Adaptation, individual speaking styles and texture details are precisely modeled. 
+            Additionally, we introduce a color MLP to generate fine-grained, motion-aligned textures and a Body Inpainter to 
+            blend rendered results with the background, producing indistinguishable, photorealistic video frames. 
+            Comprehensive experiments show that GGTalker achieves state-of-the-art performance in rendering quality, 
+            3D consistency, lip-sync accuracy, and training efficiency.
           </p>
         </div>
       </div>
@@ -280,10 +278,11 @@
           <img src="./static/videos/pipeline.png" alt="GGAvatars">
           <p>
             <br>
-            Overview of GGAvatars. Given a source image , we use an Identity Encoder to extract 
-            identity features and a Gaussian Generator to predict Gaussian feature map in the UV space. 
-            The color and spacial features of are visualized in the figure. Then we perform UV sampling on the Gaussian feature map to obtain the canonical 3D Gaussian head. 
-            We use pose and expression of the driving image for animation by deforming the cannonical head. The synthesized image is supervised by ground truth for self-supervised learning.
+            Overview of GGTalker. We introduce a two-stage Prior-Adaptation approach for talking head synthesis. 
+            We use a conditional diffusion transformer to predict plausible facial movements from an audio sequence. 
+            For texture generation, we leverage the UV layout of the canonical mesh and use an Identity-Gaussian Generator to predict a UV Gaussian map from a single reference image, 
+            initializing a reasonable Gaussian distribution for the head. We adapt well-trained priors to target individual’s speaking style and texture details. 
+            We further introduce a color MLP and a Body Inpainter to generate motion-aligned fine textures and lifelike results.
           </p>
           <!-- <p>
             
@@ -304,8 +303,8 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-  @article{hu2024ggavatars,
-    title={GGAvatars: Learning Generalizable and Animatable Gaussian Head Priors from 2D Image Collections}, 
+  @article{hu2025ggtalker,
+    title={GGTalker: Talking Head Systhesis with Generalizable Gaussian Priors and Identity-Specific Adaptation}, 
   }
 </code></pre>
   </div>
