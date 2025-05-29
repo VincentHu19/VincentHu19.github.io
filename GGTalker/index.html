@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="Talking head, Audio-driven, NeRF, SyncTalk">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GGAvatars</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> GGAvatars: Learning Generalizable and Animatable Gaussian Head Priors from 2D Image Collections</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://vincenthu19.github.io/">Wentao Hu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <strong>Shunkai Li</strong><sup>2</sup>,</span>
+            <span class="author-block">
+              <strong>Wansheng Tian</strong><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <strong>Fan Shi</strong><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <strong>Tianze Shi</strong><sup>3</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <strong>Xiaoqiang Liu</strong><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <strong>Pengfei Wan</strong><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <strong>Di Zhang</strong><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <strong>Hui Tian</strong><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Beijing University of Posts and Telecommunications,</span>
+            <br>
+            <span class="author-block"><sup>2</sup>Kuaishou Technology,</span>
+            <span class="author-block"><sup>3</sup>Peking University.,</span>
+
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2311.17590"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#teaser"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ziqiaopeng/SyncTalk"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay loop controls playsinline height="100%">
+        <source src="./static/videos/synctalk-arxiv.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <strong>GGAvatars</strong>  learns 3D head priors from only 2D in-the-wild image collections. We supervise 3D Gaussians using 
+        2D data in a self-supervised manner. During inference, our model reconstructs one-shot high-quality 3D head avatar from a single image.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Creating high-fidelity 3D avatar is crucial for many applications. Recent advances in 
+            Gaussian Splatting enables creating avatar from videos, but require video inputs for 
+            specific identities with accurate tracking to guarantee the quality of reenactment. 
+            Moreover, they often fail in unseen expressions and motions. In this paper, we propose 
+            a generalizable and animatable 3D Gaussian training approach that creates high-fidelity 
+            head avatar from a single image. We argue that this task can be learned from only 2D 
+            in-the-wild images, without the need of multi-view videos or accurate high-poly meshes. 
+            To achieve this, our model learns to synthesize a target image from a source and a driving image. 
+            We design a rasterization-based Identity-Encoder to embed identity and spatial features 
+            into the Gaussian Generator. To tackle the unstructured nature of 3D Gaussians, we predict 
+            Gaussian attributes in the UV space of a canonical mesh. Our efficient pipeline scales 
+            well to large-scale 2D datasets, enabling realistic representations of varying appearances 
+            and complex expressions. The model generates one-shot 3D avatar from a single image that 
+            reenact at 120+ fps with 1k resolution. The Gaussians generalize well to various motions, 
+            unseen expressions and even exaggerated/subtle expressions. Comprehensive experiments show that 
+            our method achieves state-of-the-art performance on reenactment and multi-view consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    
+    <!-- Proposed Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Proposed Method</h2>
+        <div class="content has-text-justified">
+          <img src="./static/videos/pipeline.png" alt="GGAvatars">
+          <p>
+            <br>
+            Overview of GGAvatars. Given a source image , we use an Identity Encoder to extract 
+            identity features and a Gaussian Generator to predict Gaussian feature map in the UV space. 
+            The color and spacial features of are visualized in the figure. Then we perform UV sampling on the Gaussian feature map to obtain the canonical 3D Gaussian head. 
+            We use pose and expression of the driving image for animation by deforming the cannonical head. The synthesized image is supervised by ground truth for self-supervised learning.
+          </p>
+          <!-- <p>
+            
+          </p>
+          <p>
+            
+          </p> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Proposed Method. -->  
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+  @article{hu2024ggavatars,
+    title={GGAvatars: Learning Generalizable and Animatable Gaussian Head Priors from 2D Image Collections}, 
+  }
+</code></pre>
+  </div>
+</section>
+ 
+
+
+
+<footer class="footer">
+  <div class="container">
+      <div class="content has-text-centered">
+          <a class="icon-link" href="https://arxiv.org/abs/2311.17590">
+              <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/ZiqiaoPeng/SyncTalk" class="external-link" disabled>
+              <i class="fab fa-github"></i>
+          </a>
+      </div>
+      <div class="columns is-centered">
+          <div class="column is-8">
+              <div class="content">
+                  <p style="text-align:center">
+                    This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                  </p>
+                  <p style="text-align:center">
+                    Website source code based on the <a
+                    href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+                  </p>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>
