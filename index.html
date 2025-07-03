@@ -51,20 +51,20 @@
 
 <tr onmouseout="ggtalker_stop()" onmouseover="ggtalker_start()" >
   <td style="padding:20px;width:25%;vertical-align:middle">
-    <div class="two" id="synctalk_image" style="display: inline;"> 
+    <div class="two" id="ggtalker_image" style="display: inline;"> 
       <video  width="320" height="180" muted autoplay loop>
-      <source src="images/ggtalker_mini.mp4" alt="synctalk mp4" width="320" height="180" type="video/mp4">
+      <source src="images/ggtalker_mini.mp4" alt="ggtalker mp4" width="320" height="180" type="video/mp4">
       </video>
     </div>
-      <img src='images/ggtalker.png' alt="synctalk" width="320" height="180">
+      <img src='images/ggtalker.png' alt="ggtalker" width="320" height="180">
     </div>
     <script type="text/javascript">
       function synctalk_start() {
-        document.getElementById('synctalk_image').style.opacity = "1";
+        document.getElementById('ggtalker_image').style.opacity = "1";
       }
 
       function synctalk_stop() {
-        document.getElementById('synctalk_image').style.opacity = "0";
+        document.getElementById('ggtalker_image').style.opacity = "0";
       }
       synctalk_stop()
     </script>
